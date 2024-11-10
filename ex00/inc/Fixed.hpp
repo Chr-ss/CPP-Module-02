@@ -6,7 +6,7 @@
 /*   By: christian.rasche <christian.rasche@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/09 14:58:12 by christian.r   #+#    #+#                 */
-/*   Updated: 2024/11/10 13:45:55 by crasche       ########   odam.nl         */
+/*   Updated: 2024/11/10 14:28:19 by crasche       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 class Fixed {
 private:
 	int					_value;
-	static const int	_fractionalBits = 8;
+	static const int	_fractionalBits;
 public:
 	// Constructor
 	Fixed(void);

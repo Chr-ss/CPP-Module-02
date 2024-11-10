@@ -6,7 +6,7 @@
 /*   By: christian.rasche <christian.rasche@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/09 14:58:12 by christian.r   #+#    #+#                 */
-/*   Updated: 2024/11/10 13:50:48 by crasche       ########   odam.nl         */
+/*   Updated: 2024/11/10 15:19:22 by crasche       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <fstream>
+# include <cmath>
 
 # define RESET          "\033[0m"
 # define BLACK          "\033[30m"
@@ -46,17 +47,18 @@
 class Fixed {
 private:
 	int					_value;
-	static const int	_fractionalBits = 8;
+	static const int	_fractionalBits;
 public:
 	// Constructor
 	Fixed(void);
+	Fixed(const int value);
+	Fixed(const float value);
 
 	// Copy Constructor
 	Fixed(const Fixed &toCopy);
 
 	// Copy assignment operator
 	Fixed& operator=(const Fixed &other);
-	void operator<<(std::ofsteam &outStream);
 
 	// Destructor
 	~Fixed();
@@ -72,5 +74,6 @@ public:
 	int toInt(void) const;
 };
 
+std::ostream& operator<<(std::ostream &outStream, const Fixed &out);
 
 #endif // FIXED_HPP
