@@ -6,7 +6,7 @@
 /*   By: christian.rasche <christian.rasche@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/09 14:58:12 by christian.r   #+#    #+#                 */
-/*   Updated: 2024/11/10 13:45:55 by crasche       ########   odam.nl         */
+/*   Updated: 2024/11/10 13:50:48 by crasche       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <fstream>
 
 # define RESET          "\033[0m"
 # define BLACK          "\033[30m"
@@ -41,6 +42,7 @@
 # define BOLD           "\033[1m"
 # define UNDERLINE      "\033[4m"
 
+
 class Fixed {
 private:
 	int					_value;
@@ -54,6 +56,7 @@ public:
 
 	// Copy assignment operator
 	Fixed& operator=(const Fixed &other);
+	void operator<<(std::ofsteam &outStream);
 
 	// Destructor
 	~Fixed();
@@ -63,6 +66,10 @@ public:
 
 	// Setter
 	void setRawBits(int const raw);
+
+	// Public functions
+	float toFloat(void) const;
+	int toInt(void) const;
 };
 
 

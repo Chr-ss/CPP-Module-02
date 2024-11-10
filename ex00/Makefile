@@ -1,4 +1,4 @@
-NAME		=	orthodox
+NAME		=	fixed
 RM			=	rm -rf
 CPP			=	c++
 CPPFLAGS	=	-Wall -Wextra -Werror -std=c++11
