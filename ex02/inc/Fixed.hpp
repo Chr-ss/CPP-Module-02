@@ -6,7 +6,7 @@
 /*   By: christian.rasche <christian.rasche@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/09 14:58:12 by christian.r   #+#    #+#                 */
-/*   Updated: 2024/11/11 15:58:03 by crasche       ########   odam.nl         */
+/*   Updated: 2024/11/11 15:55:58 by crasche       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <fstream>
+# include <cmath>
 
 # define RESET          "\033[0m"
 # define BLACK          "\033[30m"
@@ -41,6 +43,7 @@
 # define BOLD           "\033[1m"
 # define UNDERLINE      "\033[4m"
 
+
 class Fixed {
 private:
 	int					_value;
@@ -48,12 +51,34 @@ private:
 public:
 	// Constructor
 	Fixed(void);
+	Fixed(const int value);
+	Fixed(const float value);
 
 	// Copy Constructor
 	Fixed(const Fixed &toCopy);
 
 	// Copy assignment operator
 	Fixed& operator=(const Fixed &other);
+
+	// comparison operators
+	bool operator>(const Fixed &other) const;
+	bool operator<(const Fixed &other) const;
+	bool operator>=(const Fixed &other) const;
+	bool operator<=(const Fixed &other) const;
+	bool operator==(const Fixed &other) const;
+	bool operator!=(const Fixed &other) const;
+
+	// arithmetic operators
+	Fixed operator+(const Fixed &other) const;
+	Fixed operator-(const Fixed &other) const;
+	Fixed operator*(const Fixed &other) const;
+	Fixed operator/(const Fixed &other) const;
+
+	// increment/decrement operators
+	Fixed operator++(int);
+	Fixed& operator++();
+	Fixed operator--(int);
+	Fixed& operator--();
 
 	// Destructor
 	~Fixed();
@@ -63,7 +88,16 @@ public:
 
 	// Setter
 	void setRawBits(int const raw);
+
+	// Public functions
+	float toFloat(void) const;
+	int toInt(void) const;
+	static Fixed& min(Fixed &a, Fixed &b);
+	static const Fixed& min(const Fixed &a, const Fixed &b);
+	static Fixed& max(Fixed &a, Fixed &b);
+	static const Fixed& max(const Fixed &a, const Fixed &b);
 };
 
+std::ostream& operator<<(std::ostream &outStream, const Fixed &out);
 
 #endif // FIXED_HPP
