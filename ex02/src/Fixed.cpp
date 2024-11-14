@@ -6,7 +6,7 @@
 /*   By: christian.rasche <christian.rasche@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/09 14:58:18 by christian.r   #+#    #+#                 */
-/*   Updated: 2024/11/11 15:54:36 by crasche       ########   odam.nl         */
+/*   Updated: 2024/11/14 16:50:30 by crasche       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,19 +84,22 @@ bool Fixed::operator!=(const Fixed &other) const
 // arithmetic operators
 Fixed Fixed::operator+(const Fixed &other) const
 {
-	Fixed result(_value + other._value);
+	Fixed result;
+	result.setRawBits(_value + other._value);
 	return (result);
 }
 
 Fixed Fixed::operator-(const Fixed &other) const
 {
-	Fixed result(_value - other._value);
+	Fixed result;
+	result.setRawBits(_value - other._value);
 	return (result);
 }
 
 Fixed Fixed::operator*(const Fixed &other) const
 {
-	Fixed result(_value * other.toFloat());
+	Fixed result;
+	result.setRawBits(_value * other.toFloat());
 	return (result);
 }
 
@@ -109,7 +112,7 @@ Fixed Fixed::operator/(const Fixed &other) const
 		return (result);
 	}
 	else
-		result._value = _value / other.toFloat();
+		result.setRawBits(this->toFloat() / other.toFloat());
 	return (result);
 }
 

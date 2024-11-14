@@ -6,7 +6,7 @@
 /*   By: crasche <crasche@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/07 16:36:52 by crasche       #+#    #+#                 */
-/*   Updated: 2024/11/11 15:56:50 by crasche       ########   odam.nl         */
+/*   Updated: 2024/11/14 16:55:43 by crasche       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void)
 {
 	{
-		std::cout << GREEN << "TEST1:" << RESET << std::endl;
+		std::cout << GREEN << "TEST1 (subject):" << RESET << std::endl;
 		Fixed a;
 		Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
@@ -46,7 +46,8 @@ int main(void)
 		std::cout << "a++:\t\t" << a++ << std::endl;
 		std::cout << "a:\t\t" << a << std::endl;
 
-		std::cout << "\nmin / max test\nb:\t\t" << b << std::endl;
+		std::cout << "\nmin / max test\na:\t\t" << a << std::endl;
+		std::cout << "b:\t\t" << b << std::endl;
 		std::cout << "max(a, b)\t" << Fixed::max( a, b ) << std::endl;
 		std::cout << "min(a, b)\t" << Fixed::min( a, b ) << std::endl;
 	}
@@ -56,23 +57,40 @@ int main(void)
 		Fixed b(10.1016f);
 		Fixed c(0.00390625f);
 
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << c << std::endl;
+		std::cout << "a:\t\t" << a << std::endl;
+		std::cout << "b:\t\t" << b << std::endl;
+		std::cout << "c:\t\t" << c << std::endl;
 		// std::cout << c << std::endl;
 		// std::cout << c << std::endl;
 
+		std::cout << b.getRawBits() << std::endl;
+		std::cout << c.getRawBits() << std::endl;
 		Fixed d = b + c;
-		std::cout << d << std::endl;
+		std::cout << "b + c\t\t" << d << std::endl;
 
 		Fixed e = b - c;
-		std::cout << e << std::endl;
+		std::cout << "b - c\t\t" << e << std::endl;
 
 		Fixed f = b * c;
-		std::cout << f << std::endl;
+		std::cout << "b * c\t\t" << f << std::endl;
 
 		Fixed g = b / c;
-		std::cout << g << std::endl;
+		std::cout << "b / c\t\t" << g << std::endl;
+	}
+	{
+		std::cout << GREEN << "\nTEST4 (all):" << RESET << std::endl;
+		Fixed a;
+		Fixed b(1);
+		Fixed c(0.00390625f);
+		Fixed d(10.1016f);
+		Fixed e(100);
+
+		std::cout << GRAY << "a:\t\t" << a << std::endl;
+		std::cout << "b:\t\t" << b << std::endl;
+		std::cout << "c:\t\t" << c << std::endl;
+		std::cout << "d:\t\t" << c << std::endl;
+		std::cout << "e:\t\t" << c << "\n" << RESET << std::endl;
+
 	}
 	return (0);
 }
