@@ -6,7 +6,7 @@
 /*   By: christian.rasche <christian.rasche@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/09 14:58:18 by christian.r   #+#    #+#                 */
-/*   Updated: 2024/11/14 16:50:30 by crasche       ########   odam.nl         */
+/*   Updated: 2024/11/20 12:53:35 by christian.r   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,15 +105,13 @@ Fixed Fixed::operator*(const Fixed &other) const
 
 Fixed Fixed::operator/(const Fixed &other) const
 {
-	Fixed result;
 	if (other._value == 0)
 	{
 		std::cout << RED << "Devision by 0 invalid!!" << RESET << std::endl;
-		return (result);
+		return (Fixed());
 	}
 	else
-		result.setRawBits(this->toFloat() / other.toFloat());
-	return (result);
+		return (Fixed(this->toFloat() / other.toFloat()));
 }
 
 // str[increment_i(&i)]
