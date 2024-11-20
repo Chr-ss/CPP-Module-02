@@ -6,7 +6,7 @@
 /*   By: crasche <crasche@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/07 16:36:52 by crasche       #+#    #+#                 */
-/*   Updated: 2024/11/20 12:53:48 by christian.r   ########   odam.nl         */
+/*   Updated: 2024/11/20 13:14:15 by christian.r   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int main(void)
 	// 	std::cout << "b / c\t\t" << g << std::endl;
 	// }
 	{
-		std::cout << GREEN << "\nTEST4 (all):" << RESET << std::endl;
+		std::cout << BLUE << "\nTEST4, base values:" << RESET << std::endl;
 		Fixed a;
 		Fixed b(2);
 		Fixed c(0.00390625f);
@@ -147,16 +147,16 @@ int main(void)
 		std::cout << "d:\t\t" << d << std::endl;
 
 		std::cout << BLUE << "\nAdd these four public overloaded member functions to your class: (min/max)" << RESET << std::endl;
-		std::cout << "a:\t" << a << "\tb:\t" << b << std::endl;
+		std::cout << "\na:\t" << a << "\tb:\t" << b << std::endl;
 		std::cout << "max(a, b)\t" << Fixed::max( a, b ) << std::endl;
 		std::cout << "min(a, b)\t" << Fixed::min( a, b ) << std::endl;
-		std::cout << "c:\t" << c << "\td:\t" << d << std::endl;
+		std::cout << "\nc:\t" << c << "\td:\t" << d << std::endl;
 		std::cout << "max(c, d)\t" << Fixed::max( c, d ) << std::endl;
 		std::cout << "min(c, d)\t" << Fixed::min( c, d ) << std::endl;
 
 		const Fixed b_const(2);
 		const Fixed e_const(100);
-		std::cout << "e_const:\t" << e_const << "\tb_const:\t" << b_const << std::endl;
+		std::cout << "\ne_const:\t" << e_const << "\tb_const:\t" << b_const << std::endl;
 		std::cout << "max(e_const, b_const)\t" << Fixed::max( e_const, b_const ) << std::endl;
 		std::cout << "min(e_const, b_const)\t" << Fixed::min( e_const, b_const ) << std::endl;
 		
